@@ -21,6 +21,9 @@ public class StreamsMap1 {
         //With Java 8
         List<String> collect = listOfStrings.stream().map(String::toUpperCase).collect(Collectors.toList());
         System.out.println(collect);
+
+        //If you only want to print it you can use forEach like this
+        listOfStrings.forEach(line -> System.out.print(line.toUpperCase() + ", "));
     }
 
 }
