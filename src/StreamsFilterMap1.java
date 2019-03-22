@@ -20,19 +20,23 @@ public class StreamsFilterMap1 {
 
         String searchFor = "fredrik";
 
+        System.out.println("Search for name : " + searchFor);
+
+        System.out.println();
+        System.out.println("All names:");
+        List<String> collect = persons.stream()
+                .map(Person::getName)
+                .collect(Collectors.toList());
+        collect.forEach(System.out::println);
+
         String name = persons.stream()
                 .filter(x -> searchFor.equals(x.getName()))
                 .map(Person::getName)
                 .findAny() //findFirst() also works in this case
                 .orElse("");
+        System.out.println();
+        System.out.println("Found name : " + name);
 
-        System.out.println("name : " + name);
-
-        List<String> collect = persons.stream()
-                .map(Person::getName)
-                .collect(Collectors.toList());
-
-        collect.forEach(System.out::println);
     }
 
     public class Person {
